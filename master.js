@@ -3,6 +3,7 @@ let termInput = document.getElementById('term-input');
 let removeBlankTerms = document.getElementById('remove-blank-terms');
 let removeLastWord = document.getElementById('remove-last-word');
 let removeFirstWord = document.getElementById('remove-first-word');
+let afterText = document.getElementById('after-text');
 
 let openedTabs = [];
 
@@ -33,6 +34,7 @@ function startTermSearch() {
       if (removeFirstWord.checked) {
         formattedTerm = formattedTerm.substring(formattedTerm.indexOf(" ")+1);
       };
+      formattedTerm = formattedTerm + " " + afterText.value
       formattedTerm = formattedTerm.replace(/ /g, "+");
       console.log(formattedTerm);
       let currentWindow = window.open('https://www.google.com/search?q='+formattedTerm,'_blank');
